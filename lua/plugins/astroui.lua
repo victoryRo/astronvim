@@ -10,10 +10,10 @@ return {
   opts = {
     -- change colorscheme
     -- colorscheme = "astrodark",
-    -- colorscheme = "juliana",
+    colorscheme = "juliana",
     -- colorscheme = "one-nvim",
     -- colorscheme = "gruvbox-baby",
-    colorscheme = "tender",
+    -- colorscheme = "tender",
     -- colorscheme = "mellifluous",
 
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
