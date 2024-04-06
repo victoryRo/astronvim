@@ -1,4 +1,6 @@
+------------------------------------------------------------------------------------------\\
 -- makes the background transparent
+
 -- vim.cmd([[
 --     hi Normal guibg=NONE ctermbg=NONE
 --     hi LineNr guibg=NONE ctermbg=NONE
@@ -6,7 +8,9 @@
 --     hi EndOfBuffer guibg=NONE ctermbg=NONE
 -- ]])
 
+------------------------------------------------------------------------------------------\\
 -- disable some default providers when checkhealth
+
 for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
@@ -29,4 +33,26 @@ return { -- this table overrides highlights in all themes
   -- Normal = { bg = "#2b313b" },   -- mariana soft
   -- Normal = { bg = "#21252c" },   -- mariana dark
 }
+
+
+------------------------------------------------------------------------------------------\\
+-- store code
+
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --     event = "VeryLazy",
+  --     config = function()
+  --       require("chatgpt").setup({
+  --         api_key_cmd = "lala"
+  --       })
+  --     end,
+  --     dependencies = {
+  --       "MunifTanjim/nui.nvim",
+  --       "nvim-lua/plenary.nvim",
+  --       "folke/trouble.nvim",
+  --       "nvim-telescope/telescope.nvim"
+  --     }
+  -- },
+
+------------------------------------------------------------------------------------------\\
 
