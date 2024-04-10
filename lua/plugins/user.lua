@@ -6,13 +6,34 @@ return {
   -- ================================ Adding Themes =================================
   --NOTE: description themes
 
+  { "rmehri01/onenord.nvim" },
+  { "cpea2506/one_monokai.nvim" },
   { "jacoborus/tender.vim" },
-  { "Th3Whit3Wolf/one-nvim" },
+
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("everforest").setup({
+        background = "soft",
+        transparent_background_level = 0,
+        italics = true,
+        disable_italic_comments = false,
+      })
+    end,
+  },
+
+  {
+    "polirritmico/monokai-nightasty.nvim",
+    lazy = false,
+    priority = 1000,
+  },
 
   {
     "luisiacc/gruvbox-baby",
     config = function()
-      -- vim.g.gruvbox_baby_background_color = "dark"
       vim.g.gruvbox_baby_telescope_theme = 1
       vim.g.gruvbox_baby_transparent_mode = 0
     end,
@@ -70,7 +91,6 @@ return {
       event = "User AstroFile",
       config = function()
         require("go").setup {
-          -- notify: use nvim-notify
           notify = true,
           -- auto commands
           auto_format = true,
@@ -125,7 +145,6 @@ return {
             { fg = "#c21f30" },
           },
         },
-
         indent = {
           use_treesitter = false,
           style = {
@@ -143,49 +162,7 @@ return {
     end,
   },
 
-  ---- nvim tree
-  {
-  "nvim-tree/nvim-tree.lua",
-    version = "*",
-    lazy = true,
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-    config = function()
-      require("nvim-tree").setup({
-        sort = {
-          sorter = "case_sensitive",
-        },
-        view = {
-          width = 47,
-        },
-        renderer = {
-          group_empty = true,
-          indent_markers = {
-            enable = true,
-          },
-          icons = {
-            git_placement = "after",
-            web_devicons = {
-              folder = {
-                enable = true,
-                color = true,
-              },
-            },
-          },
-        },
-        diagnostics = {
-          enable = false,
-        },
-        filters = {
-          dotfiles = true,
-        },
-      })
-    end,
-    cmd = { "NvimTreeFocus", "NvimTreeToggle" },
-  },
-
-    -- ================================ Overriding Plugins ================================
+  -- ================================ Overriding Plugins ================================
 
   -- customize alpha options
   {
@@ -210,9 +187,8 @@ return {
   },
 
   -- You can disable default plugins as follows:
-  -- { "max397574/better-escape.nvim", enabled = false },
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
-  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  -- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
   -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
 

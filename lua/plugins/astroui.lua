@@ -1,7 +1,5 @@
 -- AstroUI provides the basis for configuring the AstroNvim User Interface
 -- Configuration documentation can be found with `:h astroui`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
 
 ---@type LazySpec
 return {
@@ -9,22 +7,25 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    -- colorscheme = "astrodark",
+    -- colorscheme = "onenord",
     colorscheme = "juliana",
-    -- colorscheme = "one-nvim",
-    -- colorscheme = "gruvbox-baby",
-    -- colorscheme = "tender",
+    -- colorscheme = "everforest",
+    -- colorscheme = "one_monokai",
+    -- colorscheme = "monokai-nightasty",
     -- colorscheme = "mellifluous",
+    -- colorscheme = "gruvbox-baby",
+    -- colorscheme = "astrodark",
 
-    -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
         -- Normal = { bg = "#000000" },
+        Normal = { bg = "#2b313b" },  -- mariana medium
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
       },
     },
+
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line

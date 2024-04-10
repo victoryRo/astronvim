@@ -1,7 +1,5 @@
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
 
 ---@type LazySpec
 return {
@@ -35,6 +33,7 @@ return {
         tabstop = 4, -- number of space in a tab
         updatetime = 100,
         cursorline = false,
+        background = "dark"
       },
 
       g = { -- vim.g.<key>
@@ -66,10 +65,6 @@ return {
         -- live server
         sl = { ":LiveServerStart<cr>", desc = "Run server ..." },
         st = { ":LiveServerStop<cr>", desc = "Stop server" },
-
-        -- nvim tree
-        ["<leader>e"] = { ":NvimTreeToggle<cr>", desc = "Toggle menu" },
-        ["<leader>o"] = { ":NvimTreeFocus<cr>", desc = "Fucus file" },
 
         -- buffers
         ["<leader>x"] = { ":bdelete<cr>", desc = "Close current buffer" },
