@@ -6,29 +6,22 @@ return {
   -- ================================ Adding Themes =================================
   --NOTE: description themes
 
-  { "rmehri01/onenord.nvim" },
+  { "glepnir/zephyr-nvim" },
   { "cpea2506/one_monokai.nvim" },
   { "jacoborus/tender.vim" },
-
-  {
-    "neanias/everforest-nvim",
-    version = false,
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("everforest").setup({
-        background = "soft",
-        transparent_background_level = 0,
-        italics = true,
-        disable_italic_comments = false,
-      })
-    end,
-  },
 
   {
     "polirritmico/monokai-nightasty.nvim",
     lazy = false,
     priority = 1000,
+  },
+
+  {
+    "Avimitin/neovim-deus",
+    config = function()
+      -- vim.g.deus_background = "mid"
+      -- vim.g.deus_background = "hard"
+    end
   },
 
   {
@@ -39,20 +32,10 @@ return {
     end,
   },
 
-  {
-    "ramojus/mellifluous.nvim",
-    config = function()
-      require("mellifluous").setup {
-        mellifluous = {
-          neutral = true,
-          bg_contrast = "medium", -- options: 'soft', 'medium', 'hard'
-        },
-      }
-    end,
-  },
-
   -- ================================ Adding Plugins ================================
 
+  ---- color brackets
+  { "HiPhish/rainbow-delimiters.nvim" },
   { "andweeb/presence.nvim" },
 
   ---- signature help
@@ -97,6 +80,8 @@ return {
           auto_lint = true,
           -- linters: revive, errcheck, staticcheck, golangci-lint
           linter = "golangci-lint",
+          -- lint_prompt_style: qf (quickfix), vt (virtual text)
+          lint_prompt_style = 'vt',
         }
       end,
       cmd = { "GoInstallBinaries", "GoUpdateBinaries", "GoTest" },
@@ -160,6 +145,45 @@ return {
         },
       }
     end,
+  },
+
+  ---- neovim trouble
+  {
+    "folke/trouble.nvim",
+    branch = "dev", -- IMPORTANT!
+    keys = {
+      {
+        "<leader>ñt",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>ñb",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>ñs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>ñp",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>ñl",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>ñq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
   },
 
   -- ================================ Overriding Plugins ================================

@@ -6,20 +6,19 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    -- change colorscheme
-    -- colorscheme = "onenord",
-    colorscheme = "juliana",
-    -- colorscheme = "everforest",
+    -- colorscheme = "juliana",
     -- colorscheme = "one_monokai",
-    -- colorscheme = "monokai-nightasty",
-    -- colorscheme = "mellifluous",
+    colorscheme = "monokai-nightasty",
     -- colorscheme = "gruvbox-baby",
+    -- colorscheme = "tender",
+    -- colorscheme = "deus",
+    -- colorscheme = "zephyr",
     -- colorscheme = "astrodark",
 
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
-        Normal = { bg = "#2b313b" },  -- mariana medium
+        -- Normal = { bg = "#2b313b" },  -- mariana medium
+        -- Normal = { bg = "#21252C" },  -- deus
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
