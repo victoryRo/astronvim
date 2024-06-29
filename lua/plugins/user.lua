@@ -6,9 +6,14 @@ return {
   -- ================================ Adding Themes =================================
   --NOTE: description themes
 
-  { "glepnir/zephyr-nvim" },
-  { "cpea2506/one_monokai.nvim" },
-  { "jacoborus/tender.vim" },
+  { "ajmwagar/vim-deus" },
+
+  {
+    "morhetz/gruvbox",
+    config = function()
+      vim.g.gruvbox_contrast_dark = "medium" -- medium soft hard
+    end
+  },
 
   {
     "polirritmico/monokai-nightasty.nvim",
@@ -17,26 +22,47 @@ return {
   },
 
   {
-    "Avimitin/neovim-deus",
+    "navarasu/onedark.nvim",
+    priority = 1000, -- Ensure it loads first
     config = function()
-      -- vim.g.deus_background = "mid"
-      -- vim.g.deus_background = "hard"
-    end
+      require('onedark').setup {
+        style = 'dark', -- warmer dark
+        code_style = {
+          comments = 'italic',
+          keywords = 'bold',
+          functions = 'none',
+          strings = 'italic',
+          variables = 'none'
+        },
+      }
+    end,
   },
 
   {
-    "luisiacc/gruvbox-baby",
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
     config = function()
-      vim.g.gruvbox_baby_telescope_theme = 1
-      vim.g.gruvbox_baby_transparent_mode = 0
+      vim.o.background = 'dark' -- or 'light'
     end,
+  },
+
+  {
+    "shaunsingh/nord.nvim",
+    config = function()
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = true
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = true
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = true
+    end
   },
 
   -- ================================ Adding Plugins ================================
 
   ---- color brackets
   { "HiPhish/rainbow-delimiters.nvim" },
-  { "andweeb/presence.nvim" },
 
   ---- signature help
   {
@@ -52,6 +78,7 @@ return {
     cmd = { "LiveServerStart", "LiveServerStop" },
   },
 
+  ---- popup lsp show type method func ...
   {
     "gorbit99/codewindow.nvim",
     config = function()
@@ -81,7 +108,7 @@ return {
           -- linters: revive, errcheck, staticcheck, golangci-lint
           linter = "golangci-lint",
           -- lint_prompt_style: qf (quickfix), vt (virtual text)
-          lint_prompt_style = 'vt',
+          lint_prompt_style = 'qf',
         }
       end,
       cmd = { "GoInstallBinaries", "GoUpdateBinaries", "GoTest" },
@@ -147,44 +174,6 @@ return {
     end,
   },
 
-  ---- neovim trouble
-  {
-    "folke/trouble.nvim",
-    branch = "dev", -- IMPORTANT!
-    keys = {
-      {
-        "<leader>ñt",
-        "<cmd>Trouble diagnostics toggle<cr>",
-        desc = "Diagnostics (Trouble)",
-      },
-      {
-        "<leader>ñb",
-        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-        desc = "Buffer Diagnostics (Trouble)",
-      },
-      {
-        "<leader>ñs",
-        "<cmd>Trouble symbols toggle focus=false<cr>",
-        desc = "Symbols (Trouble)",
-      },
-      {
-        "<leader>ñp",
-        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-        desc = "LSP Definitions / references / ... (Trouble)",
-      },
-      {
-        "<leader>ñl",
-        "<cmd>Trouble loclist toggle<cr>",
-        desc = "Location List (Trouble)",
-      },
-      {
-        "<leader>ñq",
-        "<cmd>Trouble qflist toggle<cr>",
-        desc = "Quickfix List (Trouble)",
-      },
-    },
-    opts = {}, -- for default options, refer to the configuration section for custom setup.
-  },
 
   -- ================================ Overriding Plugins ================================
 
@@ -211,6 +200,7 @@ return {
   },
 
   -- You can disable default plugins as follows:
+  { "numToStr/Comment.nvim", enabled = false},
   { "lukas-reineke/indent-blankline.nvim", enabled = false },
   -- { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
